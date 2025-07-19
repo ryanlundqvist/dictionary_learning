@@ -1087,6 +1087,9 @@ class CrossCoder(Dictionary, NormalizableMixin):
         activation_std: th.Tensor | None = None,
         target_rms: float | None = None,
     ):
+        if target_rms is None:
+            target_rms = 1.0   # sensible default RMS scale
+
         """
         Initialize a CrossCoder sparse autoencoder.
 
